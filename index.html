@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>autocomplete</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="dist/typeahead.js"></script>
+</head>
+<body>
+<style>
+    body {
+        padding: 50px;
+        padding-top: 50px;
+    }
+
+    .dropdown-menu {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+</style>
+<div class="row">
+    <div class="col-md-2">
+        <input type="text" placeholder="" class="typeahead" data-source=""/>
+        <input type="hidden" id="hidden-field"/>
+    </div>
+
+    <script type="application/javascript">
+        $('.typeahead').typeahead({
+            getMethod: function (url, value) {
+                return new Promise(function (resolve) {
+                    var data = [];
+                    for (var i = 0; i < 15; i++) {
+                        data.push({name: value + i, value: i})
+                    }
+                    resolve(data);
+                });
+            },
+            valueField: '#hidden-field'
+        });
+    </script>
+</div>
+</body>
+</html>

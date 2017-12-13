@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Softec.Web.Typeahead</id>
+    <version>0.0.10</version>
+    <authors>SOFTEC AG, PD</authors>
+    <owners>SOFTEC AG</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JQuery Typeahead Component</description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>jQuery Javascript Typeahead Dropdown</tags>
+    <dependencies>
+      <!--<dependency id="jQuery" version="2.0.0" />-->
+    </dependencies>
+  </metadata>
+  <files>
+      <file src="dist\*.js" target="content/Scripts" />
+      <file src="typings\typeahead.d.ts" target="content/Scripts/typings/typeahead" />
+  </files>
+</package>
