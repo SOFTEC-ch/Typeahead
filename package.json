@@ -1,12 +1,12 @@
 {
   "name": "typeahead",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "",
   "main": "src/typeahead.js",
   "scripts": {
     "test": "karma start karma.conf.js"
   },
-  "author": "",
+  "author": "SOFTEC AG",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.18.0",

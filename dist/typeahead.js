@@ -90,10 +90,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
             });
 
-            document.addEventListener('click', function (e) {
-                console.log(e.target);
-            });
-
             this.open = false;
         }
 
@@ -230,6 +226,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.$valueField.val(value[this.options.valueProperty] || '');
                 }
 
+                if (this.options.onSelected) {
+                    this.options.onSelected(this);
+                }
+
                 this.$input.trigger('change');
             }
         }]);
@@ -244,7 +244,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         dataSource: null,
         searchOn: 'input',
         appendToBody: false,
-        getMethod: $.get
+        getMethod: $.get,
+        onSelected: null
     };
 
     $.fn.typeahead = function (option) {

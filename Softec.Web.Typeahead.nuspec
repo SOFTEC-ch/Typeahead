@@ -2,14 +2,16 @@
 <package>
   <metadata>
     <id>Softec.Web.Typeahead</id>
-    <version>0.0.10</version>
+    <version>1.0.0</version>
     <authors>SOFTEC AG, PD</authors>
     <owners>SOFTEC AG</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>JQuery Typeahead Component</description>
     <releaseNotes>
+    1.0.0:
+        - added onSelected property
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>jQuery Javascript Typeahead Dropdown</tags>
     <dependencies>
       <!--<dependency id="jQuery" version="2.0.0" />-->
