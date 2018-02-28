@@ -331,6 +331,20 @@ describe('Typeahead', function () {
         expect(selectedFunc).toHaveBeenCalled();
     });
 
+    it('should call onSelected function with itself as parameter', function () {
+        const selectedFunc = jasmine.createSpy('onSelected spy');
+        $('.test-element').typeahead({getMethod: TEST_METHOD, onSelected: selectedFunc});
+
+        const typeahead = $('.typeahead');
+        let dropdown = $('.typeahead ~ ul.items.dropdown-menu');
+
+        typeahead.val(TEST_VALUE);
+        fireInputEvent(typeahead[0]);
+
+        dropdown.find('li:eq(2)').click();
+        expect(selectedFunc).toHaveBeenCalledWith(typeahead.data('typeahead'));
+    });
+
     /*
      it('should only append the dropdown-menu items if the dropdown is open', function () {
      let options = {dataSource: test_dataSource};
