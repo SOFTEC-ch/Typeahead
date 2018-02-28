@@ -129,6 +129,10 @@ class Typeahead {
             this.$valueField.val(value[this.options.valueProperty] || '');
         }
 
+        if (this.options.onSelected) {
+            this.options.onSelected(this);
+        }
+
         this.$input.trigger('change');
     }
 
@@ -213,7 +217,8 @@ const defaultOptions = {
     dataSource: null,
     searchOn: 'input',
     appendToBody: false,
-    getMethod: $.get
+    getMethod: $.get,
+    onSelected: null
 };
 
 $.fn.typeahead = function (option) {

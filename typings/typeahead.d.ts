@@ -19,6 +19,8 @@ interface TypeaheadOptions {
     appendToBody?: boolean;
 
     getMethod?: Function;
+
+    onSelected?: Function;
 }
 
 interface Typeahead {
