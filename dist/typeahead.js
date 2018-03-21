@@ -128,16 +128,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         _this.selected = x;
                         _this.open = false;
                     };
-                    li.addEventListener('click', selectItemHandler);
-                    li.addEventListener('keydown', function (e) {
-                        if (e.keyCode === 13) {
-                            // enter key
-                            selectItemHandler(e);
-                            _this.$input.focus();
-                            e.preventDefault();
-                        }
-                    });
 
+                    if (x[_this.options.selectableProperty] === undefined || x[_this.options.selectableProperty] === null || !!x[_this.options.selectableProperty] === true) {
+                        li.addEventListener('click', selectItemHandler);
+                        li.addEventListener('keydown', function (e) {
+                            if (e.keyCode === 13) {
+                                // enter key
+                                selectItemHandler(e);
+                                _this.$input.focus();
+                                e.preventDefault();
+                            }
+                        });
+                    } else if (!!x[_this.options.selectableProperty] === false) {
+                        li.addEventListener('click', function () {
+                            return _this.open = true;
+                        });
+                    }
                     _this.$items.append(li);
                 });
             }
@@ -240,6 +246,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var defaultOptions = {
         nameProperty: 'name',
         valueProperty: 'value',
+        selectableProperty: 'selectable',
         valueField: null,
         dataSource: null,
         searchOn: 'input',
