@@ -1,4 +1,5 @@
 'use strict';
+
 class Typeahead {
 
     constructor(element, options) {
@@ -167,16 +168,20 @@ class Typeahead {
                 _this.selected = x;
                 _this.open = false;
             };
-            li.addEventListener('click', selectItemHandler);
-            li.addEventListener('keydown', (e) => {
-                if (e.keyCode === 13) {
-                    // enter key
-                    selectItemHandler(e);
-                    _this.$input.focus();
-                    e.preventDefault();
-                }
-            });
 
+            if (x[_this.options.selectableProperty] === undefined || x[_this.options.selectableProperty] === null || !!x[_this.options.selectableProperty] === true) {
+                li.addEventListener('click', selectItemHandler);
+                li.addEventListener('keydown', (e) => {
+                    if (e.keyCode === 13) {
+                        // enter key
+                        selectItemHandler(e);
+                        _this.$input.focus();
+                        e.preventDefault();
+                    }
+                });
+            } else if (!!x[_this.options.selectableProperty] === false) {
+                li.addEventListener('click', () => _this.open = true);
+            }
             _this.$items.append(li);
         });
     }
@@ -213,6 +218,7 @@ class Typeahead {
 const defaultOptions = {
     nameProperty: 'name',
     valueProperty: 'value',
+    selectableProperty: 'selectable',
     valueField: null,
     dataSource: null,
     searchOn: 'input',

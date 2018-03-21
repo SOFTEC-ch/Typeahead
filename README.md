@@ -24,6 +24,7 @@ appendToBody | If `true`, the dropdown-menu will be appended to the HTML body el
 dataSource | Can be either an Array or an URL. In case of an URL, Ajax is used to gather the data.
 nameProperty | The property that will be used as display text. Default: `name`
 valueProperty | The property that will be used as the value. Default: `value`
+selectableProperty | The property that will be used to specify if an element can be selected. If an element has `selectable = false` it cannot be clicked/selected. Default: `selectable`
 valueField | Can be either a selector or an element. Specified elements will get their value set to the value of the selected element (specified by the `valueProperty` option).
 filter | `function(input, data) { ... }` Function which will be used to filter the items. `input` contains the input value. `data` contains the object retrieved by the dataSource.
 filterOn | Event which will trigger the filter function. Will be attached to the text input field. Default: `input`

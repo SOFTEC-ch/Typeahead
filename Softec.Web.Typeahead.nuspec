@@ -2,12 +2,14 @@
 <package>
   <metadata>
     <id>Softec.Web.Typeahead</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>SOFTEC AG, PD</authors>
     <owners>SOFTEC AG</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>JQuery Typeahead Component</description>
     <releaseNotes>
+    1.0.1:
+        - selectableProperty property and underlying functionality. Elements can be marked as not selectable.
     1.0.0:
         - added onSelected property
     </releaseNotes>

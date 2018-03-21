@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 21.03.2018
+### Added
+- selectableProperty property and underlying functionality. Elements can be marked as not selectable.
+
 ## [1.0.0] - 28.02.2018
 ### Added
 - onSelected property
