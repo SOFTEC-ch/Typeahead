@@ -22,7 +22,7 @@ interface TypeaheadOptions {
 
     onSelected?: Function;
 
-    selectProperty: boolean
+    selectableProperty: boolean
 
     notSelectableClass: string
 }
