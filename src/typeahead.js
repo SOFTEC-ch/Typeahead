@@ -181,6 +181,7 @@ class Typeahead {
                 });
             } else if (!!x[_this.options.selectableProperty] === false) {
                 li.addEventListener('click', () => _this.open = true);
+                li.setAttribute('class', _this.options.notSelectableClass);
             }
             _this.$items.append(li);
         });
@@ -219,6 +220,7 @@ const defaultOptions = {
     nameProperty: 'name',
     valueProperty: 'value',
     selectableProperty: 'selectable',
+    notSelectableClass: 'no-select',
     valueField: null,
     dataSource: null,
     searchOn: 'input',

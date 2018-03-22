@@ -143,6 +143,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         li.addEventListener('click', function () {
                             return _this.open = true;
                         });
+                        li.setAttribute('class', _this.options.notSelectableClass);
                     }
                     _this.$items.append(li);
                 });
@@ -247,6 +248,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         nameProperty: 'name',
         valueProperty: 'value',
         selectableProperty: 'selectable',
+        notSelectableClass: 'no-select',
         valueField: null,
         dataSource: null,
         searchOn: 'input',
