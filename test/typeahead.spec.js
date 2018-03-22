@@ -377,6 +377,36 @@ describe('Typeahead', function () {
         }, 200);
     });
 
+    it('should render class on not selectable items', function (done) {
+        const element = $('.test-element');
+        const NOT_SELECTABLE_TEXT = "not selectable";
+        const NOT_SELECTABLE_CLASS = "IS-NOT-SELECTABLE";
+        const NOT_SELECTABLE_VALUE = 999;
+        element.typeahead({
+            getMethod: jasmine.createSpy('getMethod spy').and.callFake((url, {value}) => {
+                return new Promise(function (resolve) {
+                    resolve([{name: NOT_SELECTABLE_TEXT, value: NOT_SELECTABLE_VALUE, selectable: false}]);
+                });
+            }),
+            notSelectableClass: NOT_SELECTABLE_CLASS
+        });
+
+        const typeahead = $('.typeahead');
+        let dropdown = $('.typeahead ~ ul.items.dropdown-menu');
+
+        typeahead.val(TEST_VALUE);
+        fireInputEvent(typeahead[0]);
+
+        setTimeout(() => {
+            expect(TEST_METHOD).toHaveBeenCalled();
+
+            expect(dropdown).toBeVisible();
+            expect(dropdown.find('li')).toHaveClass(NOT_SELECTABLE_CLASS);
+
+            done();
+        }, 200);
+    });
+
     /*
      it('should only append the dropdown-menu items if the dropdown is open', function () {
      let options = {dataSource: test_dataSource};

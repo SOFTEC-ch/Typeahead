@@ -21,6 +21,10 @@ interface TypeaheadOptions {
     getMethod?: Function;
 
     onSelected?: Function;
+
+    selectableProperty: boolean
+
+    notSelectableClass: string
 }
 
 interface Typeahead {
